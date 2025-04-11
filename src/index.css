@@ -1,0 +1,30 @@
+.formcss{
+
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+
+  
+  
+  input{
+width: 300px;
+height: 25px;
+
+
+/* border-radius: 5px; */
+  }
+  button{
+width: 120px;
+height: 40px;
+border-radius: 8px;
+border: none;
+  }
+  button:hover{
+    background-color: aqua;
+  }
+
+}
