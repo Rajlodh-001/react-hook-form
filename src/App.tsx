@@ -3,7 +3,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 
-import { Form, SubmitHandler, useForm } from "react-hook-form";
+import {  SubmitHandler, useForm } from "react-hook-form";
 
 type FormField = {
   email: string;
@@ -14,12 +14,25 @@ function App() {
   const {
     register,
     handleSubmit,
+    setError,
     formState: { errors,isSubmitting,isSubmitSuccessful },
-  } = useForm<FormField>();
+  } = useForm<FormField>({
+    defaultValues:{
+      email:"test12@testmail.com",
+      password:"test1234"
+    }
+  });
 
   const onSubmit: SubmitHandler<FormField> = async (data) => {
-    await new Promise((resolve) => setTimeout(resolve,1000))
+    try {
+      await new Promise((resolve) => setTimeout(resolve,1000));
     console.log(data);
+    throw new Error()
+    } catch (error) {
+      // setError("email",{message:"This Email is already taken"})
+      setError("root",{message:"This Email is already taken"})
+    }
+    
   };
 
   return (
@@ -51,7 +64,11 @@ function App() {
         placeholder="password"
       />
       {errors.password && (<div>{errors.password.message}</div>)}
-      <button disabled={isSubmitting}>{isSubmitting ? "Loading..." :"submit"} {isSubmitSuccessful ? "successfully" :""}</button>
+      <button disabled={isSubmitting}>sUBMIT
+        {/* {isSubmitting ? "Loading..." :"submit"} {isSubmitSuccessful ? "successfully" :""} */}
+        </button>
+
+        {errors.root && (<div>{errors.root.message}</div>)}
     </form>
   );
 }
