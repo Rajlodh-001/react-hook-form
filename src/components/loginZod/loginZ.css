@@ -32,14 +32,12 @@ border: none;
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #fafafa;
+  background-color: #f0f4f8;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
-
-/*   background-color: #f0f4f8; */
 
 .formcss {
   background-color: white;
@@ -62,10 +60,9 @@ body {
 }
 
 .formcss input {
-  
   padding: 0.75rem 1rem;
   border: 1px solid #d1d5db;
-  border-radius: 30px;
+  border-radius: 8px;
   font-size: 1rem;
   outline: none;
   transition: border-color 0.3s;
@@ -82,7 +79,7 @@ body {
   padding: 0.75rem 1rem;
   font-size: 1rem;
   border: none;
-  border-radius: 30px;
+  border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
